@@ -5,10 +5,10 @@
 # Access to AWS API. Create new user with `AmazonEC2FullAccess` permissions
 # here `https://console.aws.amazon.com/iam/home?#/users` and put user's AWS_ACCESS_KEY_ID and
 # AWS_SECRET_ACCESS_KEY to the `terraform.tfvars` file
-variable AZURE_SUBSCRIPTION_ID {}
-variable AZURE_CLIENT_ID       {}
-variable AZURE_CLIENT_SECRET   {}
-variable AZURE_TENANT_ID       {}
+variable "AZURE_SUBSCRIPTION_ID" {}
+variable "AZURE_CLIENT_ID"       {}
+variable "AZURE_CLIENT_SECRET"   {}
+variable "AZURE_TENANT_ID"       {}
 variable "AZURE_INSTANCE_PASSWORD" {}
 
 # How many proxy servers to create
