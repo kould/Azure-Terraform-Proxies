@@ -6,6 +6,9 @@ sudo apt update
 # Install goproxy
 curl -L https://raw.githubusercontent.com/snail007/goproxy/master/install_auto.sh | sudo bash
 
+# Install goproxy cert
+curl -L https://raw.githubusercontent.com/elazarl/goproxy/master/certs/openssl-gen.sh | sudo bash
+
 # Define settings variables
 USER_NAME=$1
 PROXY_TYPE=$2
