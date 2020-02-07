@@ -8,7 +8,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "myterraformgroup" {
     name     = "proxyResourceGroup"
-    location = "eastus"
+    location = var.AZURE_DEFAULT_REGION
 
     tags = {
         environment = "Terraform Demo"
@@ -18,7 +18,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
-    location            = "eastus"
+    location            = var.AZURE_DEFAULT_REGION
     resource_group_name = azurerm_resource_group.myterraformgroup.name
 
     tags = {
@@ -37,7 +37,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 resource "azurerm_public_ip" "myterraformpublicip" {
     count                        = var.AZURE_INSTANCES_COUNT
     name                         = "pip-${count.index}"
-    location                     = "eastus"
+    location                     = var.AZURE_DEFAULT_REGION
     resource_group_name          = azurerm_resource_group.myterraformgroup.name
     allocation_method            = "Static"
 
@@ -48,7 +48,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
-    location            = "eastus"
+    location            = var.AZURE_DEFAULT_REGION
     resource_group_name = azurerm_resource_group.myterraformgroup.name
 
     tags = {
@@ -101,7 +101,7 @@ resource "azurerm_network_security_rule" "incoming_ssh" {
 resource "azurerm_network_interface" "nic" {
     count                       = var.AZURE_INSTANCES_COUNT
     name                        = "nic-${count.index}"
-    location                    = "eastus"
+    location                    = var.AZURE_DEFAULT_REGION
     resource_group_name         = azurerm_resource_group.myterraformgroup.name
     network_security_group_id   = azurerm_network_security_group.myterraformnsg.id
 
@@ -120,7 +120,7 @@ resource "azurerm_network_interface" "nic" {
 resource "azurerm_virtual_machine" "myterraformvm" {
     count                 = var.AZURE_INSTANCES_COUNT
     name                  = "proxy-node-${count.index}"
-    location              = "eastus"
+    location              = var.AZURE_DEFAULT_REGION
     resource_group_name   = azurerm_resource_group.myterraformgroup.name
     network_interface_ids = ["${element(azurerm_network_interface.nic.*.id, count.index)}"]
     vm_size               = "Standard_DS1_v2"

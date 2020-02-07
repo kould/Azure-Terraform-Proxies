@@ -15,6 +15,7 @@ variable "AZURE_INSTANCE_PASSWORD" {}
 variable "AZURE_INSTANCES_COUNT"    { default = 3 }
 
 variable "AZURE_INSTANCE_USER_NAME" { default = "ubuntu" }
+variable "AZURE_DEFAULT_REGION"     { default = "eastus" }
 
 # Proxy server type. Available options: `socks` (socks5) and `http` (http/https)
 variable "PROXY_TYPE" { default = "http" }
