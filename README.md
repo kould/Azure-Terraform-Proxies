@@ -1,4 +1,4 @@
-# EC2 Proxies
+# Azure Proxies
 
 
 
