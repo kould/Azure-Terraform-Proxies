@@ -1,9 +1,9 @@
-# EC2 Proxies
+# Azure Proxies
 
 
 
 **Tools:**
-* [Terraform](https://www.terraform.io/) to automatically create/install software/destroy EC2 instances
+* [Terraform](https://www.terraform.io/) to automatically create/install software/destroy Azure Proxy Nodes
 * Proxy server - [Goproxy](https://github.com/snail007/goproxy)
 * Ubuntu 16.04 server
 * Systemd to convert goproxy process to the system daemon service
@@ -54,7 +54,7 @@ You'll probably want to tweak following settings:
 ### Command line
 #### apply
 
-Command `$ terraform apply` will create EC2 instances and make instances setup (install and run goproxy server). From output you'll get IP addresses of created instances. Example:
+Command `$ terraform apply` will create Azure VMs instances and make instances setup (install and run goproxy server). From output you'll get IP addresses of created instances. Example:
 
 ```
 $ terraform apply
