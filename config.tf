@@ -18,7 +18,7 @@ variable "AZURE_INSTANCE_USER_NAME" { default = "ubuntu" }
 variable "AZURE_DEFAULT_REGION"     { default = "eastus" }
 
 # Proxy server type. Available options: `socks` (socks5) and `http` (http/https)
-variable "PROXY_TYPE" { default = "http" }
+variable "PROXY_TYPE" { default = "socks" }
 
 # Proxy server port
 variable "PROXY_PORT" { default = 46642 }

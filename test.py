@@ -1,26 +1,20 @@
 import requests
 from pprint import pprint
 
-
-
 public_ip_address = [
-  "13.92.80.180",
-  "13.92.81.38",
-  "13.90.229.80",
+    "168.61.49.116",
+    "168.61.50.64",
+    "168.61.49.75",
 ]
 
-
-for ip in public_ip_address[0]:
+for ip in public_ip_address:
     proxy = {
-        'http': 'http://{}:46642'.format(ip),
-        'https': 'http://{}:46642'.format(ip)
+        'http': 'socks5:{}:46642'.format(ip),
+        'https': 'socks5:{}:46642'.format(ip)
     }
     pprint(proxy)
     res = requests.get(
-        'http://www.stockx.com',
+        'https://www.google.com',
         proxies=proxy
     )
-    print(res.content)
-
-
-print('done')
+    print(res.status_code)
