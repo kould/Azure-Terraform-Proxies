@@ -4,6 +4,7 @@ provider "azurerm" {
     client_id       = var.AZURE_CLIENT_ID
     client_secret   = var.AZURE_CLIENT_SECRET
     tenant_id       = var.AZURE_TENANT_ID
+    features {}
 }
 
 resource "azurerm_resource_group" "myterraformgroup" {
