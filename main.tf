@@ -99,12 +99,10 @@ resource "azurerm_network_security_rule" "incoming_ssh" {
     network_security_group_name = "${azurerm_network_security_group.myterraformnsg.name}"
 }
 
-resource "azurerm_network_interface" "nic" {
-    count                       = var.AZURE_INSTANCES_COUNT
-    name                        = "nic-${count.index}"
-    location                    = var.AZURE_DEFAULT_REGION
-    resource_group_name         = azurerm_resource_group.myterraformgroup.name
-    network_security_group_id   = azurerm_network_security_group.myterraformnsg.id
+resource "azurerm_network_interface_security_group_association" "nic" {
+  network_interface_id      = azurerm_network_interface.myterraformnic.id
+  network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
+}
 
     ip_configuration {
         name                          = "myNicConfiguration"
