@@ -24,5 +24,5 @@ variable "PROXY_TYPE" { default = "http" }
 variable "PROXY_PORT" { default = 46642 }
 
 # Auth for proxy server. None by default
-variable "PROXY_USER"     { default="" }
-variable "PROXY_PASSWORD" { default="" }
+variable "PROXY_USER"     { default="gpl" }
+variable "PROXY_PASSWORD" { default="gpl" }
